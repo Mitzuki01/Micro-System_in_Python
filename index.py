@@ -87,7 +87,7 @@ def atualizarContato():
         tipoTelefone = listaContatos.tabelaContato.item(i,4).text()
 
     comando_SQL4 = "UPDATE contato SET nome = %s, email = %s, telefone = %s, tipoTelefone = %s WHERE id = " + str(id)
-    dados = (str(campoNome),str(campoEmail),str(campoTelefone),str(tipoTelefone),id)
+    dados = (str(campoNome),str(campoEmail),str(campoTelefone),str(tipoTelefone))
     cursor.execute(comando_SQL4,dados)
     banco.commit()
 
