@@ -8,7 +8,7 @@ from reportlab.pdfgen import canvas
 banco = mysql.connector.connect(
     host ="localhost",
     user ="root",
-    password ="",
+    password ="Password123#@!",
     database = "agenda"
 )
 
@@ -79,12 +79,12 @@ listaContatos.btnExcluir.clicked.connect(excluirContato)
 def atualizarContato():
     cursor = banco.cursor()
 
-    for i in range(listaContatos.tabelaContato.rowCount()):
-        id = listaContatos.tabelaContato.item(i,0).text()
-        campoNome = listaContatos.tabelaContato.item(i,1).text()
-        campoEmail = listaContatos.tabelaContato.item(i,2).text()
-        campoTelefone = listaContatos.tabelaContato.item(i,3).text()
-        tipoTelefone = listaContatos.tabelaContato.item(i,4).text()
+    for i in range(listaContatos.tabelaContatos.rowCount()):
+        id = listaContatos.tabelaContatos.item(i,0).text()
+        campoNome = listaContatos.tabelaContatos.item(i,1).text()
+        campoEmail = listaContatos.tabelaContatos.item(i,2).text()
+        campoTelefone = listaContatos.tabelaContatos.item(i,3).text()
+        tipoTelefone = listaContatos.tabelaContatos.item(i,4).text()
 
     comando_SQL4 = "UPDATE contato SET nome = %s, email = %s, telefone = %s, tipoTelefone = %s WHERE id = " + str(id)
     dados = (str(campoNome),str(campoEmail),str(campoTelefone),str(tipoTelefone))
@@ -128,6 +128,15 @@ def gerarPDF():
 
 
 listaContatos.btnPdf.clicked.connect(gerarPDF)
+
+
+#----------------------------------------------------Fechar---------------------------------------------------------------------
+
+def close():
+    listaContatos.close()
+
+listaContatos.btnExit.clicked.connect(close)
+
 
 
 agenda.show()

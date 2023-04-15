@@ -80,7 +80,7 @@
     <string>Cadastros</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_4">
+  <widget class="QPushButton" name="btnExit">
    <property name="geometry">
     <rect>
      <x>10</x>
